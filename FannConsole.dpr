@@ -23,7 +23,7 @@ begin
 
   start:
   ClearScreen;
-  Writeln('-- FannConsole 1.0.0 --');
+  Writeln('-- FannConsole 1.0.1 --');
   Writeln('Interactive console program based on the Fast Artificial Neural Network (FANN)');
   Writeln('Copyright MMXXI, Shpati Koleka. Program licensed under MIT license terms.');
   Writeln;
@@ -52,6 +52,7 @@ begin
 
   Write('Please enter the total number of Layers [Default = 3] : ');
   Readln(s);
+  if s = '' then s := '3';
   n := TryStrToInt(s, 3);
   if n > 10 then
   begin
@@ -69,6 +70,7 @@ begin
   begin
     Write('Please enter the number of nodes for Layer ', i + 1, '. [Default = 1] : ');
     Readln(s);
+    if s = '' then s := '1';
     l[i] := TryStrToInt(s, 1);
     Writeln('Layer ', i + 1, ' number of nodes = ', l[i]);
     Writeln;
