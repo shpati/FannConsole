@@ -25,7 +25,7 @@ begin
   ClearScreen;
   Writeln('-- FannConsole 1.0.1 --');
   Writeln('Interactive console program based on the Fast Artificial Neural Network (FANN)');
-  Writeln('Copyright MMXXI, Shpati Koleka. Program licensed under MIT license terms.');
+  Writeln('Copyright MMXXII, Shpati Koleka. Program licensed under MIT license terms.');
   Writeln;
 
   loadconfig:
