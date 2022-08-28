@@ -111,8 +111,8 @@ begin
   fann_set_activation_steepness_hidden(ann, 0.5);
   fann_set_activation_steepness_output(ann, 0.5);
 
-  fann_set_activation_function_hidden(ann, FANN_SIGMOID);
-  fann_set_activation_function_output(ann, FANN_SIGMOID);
+  fann_set_activation_function_hidden(ann, FANN_SIGMOID_SYMMETRIC);
+  fann_set_activation_function_output(ann, FANN_SIGMOID_SYMMETRIC);
 
   fann_set_train_stop_function(ann, FANN_STOPFUNC_BIT);
   fann_set_bit_fail_limit(ann, 0.001);
@@ -120,18 +120,21 @@ begin
   fann_init_weights(ann, train_data);
   Write('Please enter the maximum number of epochs [Default = 500000] : ');
   Readln(s);
+  if s = '' then s := '500000';
   epochs := TryStrToInt(s, 500000);
   Writeln('The maximum number of epochs = ', epochs);
   Writeln;
 
   Write('Please enter the number of epochs between reports [Default = 1000] : ');
   Readln(s);
+  if s = '' then s := '1000';
   ebr := TryStrToInt(s, 1000);
   Writeln('The number of epochs between reports = ', ebr);
   Writeln;
 
   Write('Please enter the desired error [Default = 0.001] : ');
   Readln(s);
+  if s = '' then s := '0.001';
   err := TryStrToFloat(s, 0.001);
   Writeln('The error = ', FormatFloat('0.#####', err));
   Writeln;
